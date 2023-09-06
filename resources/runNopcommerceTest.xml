@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="NopCommerce">
   <test name="Run on Firefox">
+  	<parameter name="browser" value="firefox"></parameter>
     <classes>
-      <class name="com.nopcommerce.user.User_01_Register_Login"/>
+      <!--
+	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_I"/>
+	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_II"/> 
+	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_III"/>
+	      <class name="com.nopcommerce.user.User_01_Register_Apply_POM"/>
+      -->
+      <class name="com.nopcommerce.user.User_01_Login_Multiple_Browser"/>
     </classes>
   </test> <!-- Test -->
+  <test name="Run on Chrome">
+  	<parameter name="browser" value="chrome"></parameter>
+    <classes>
+      <class name="com.nopcommerce.user.User_01_Login_Multiple_Browser"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->
