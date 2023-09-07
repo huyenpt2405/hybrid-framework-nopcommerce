@@ -130,4 +130,4 @@ public class Level_06_Login_POM_Page_Generator_Manager2 extends BaseTest {
 	public void afterClass() {
 		driver.quit();
 	}
-f}
+}
