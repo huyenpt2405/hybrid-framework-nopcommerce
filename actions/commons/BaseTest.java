@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.GlobalConstants;
 
 public class BaseTest {
 	private WebDriver driver;
@@ -53,7 +54,7 @@ public class BaseTest {
 		}
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("https://demo.nopcommerce.com/");
+		driver.get(GlobalConstants.USER_PORTAL_URL);
 		return driver;
 	}
 	

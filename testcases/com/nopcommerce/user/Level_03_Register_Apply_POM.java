@@ -12,15 +12,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopcommerce.user.UserHomePageObject;
+import pageObjects.nopcommerce.user.UserRegisterPageObject;
 
 public class Level_03_Register_Apply_POM{
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String emailAddress;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 	private String firstName, lastName, password;
 	
 	@BeforeClass
@@ -29,7 +29,7 @@ public class Level_03_Register_Apply_POM{
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 				
 		firstName = "Automation";
 		lastName = "FC";
@@ -40,8 +40,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_01_Empty_Data() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 		
 		registerPage.clickToRegisterButton();
 		
@@ -55,8 +55,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_02_Invalid_Email() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 		
 		registerPage.inputToFirstNameTextBox("Automation");
 		registerPage.inputToLastNameTextBox("Test");
@@ -71,8 +71,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_03_Success() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 		
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -86,7 +86,7 @@ public class Level_03_Register_Apply_POM{
 		
 		try {
 			registerPage.clickToLogoutLink();
-			homePage = new HomePageObject(driver);
+			homePage = new UserHomePageObject(driver);
 		} catch (Exception exception) {
 			System.out.println(exception);
 		}
@@ -94,8 +94,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_04_Existing_Email() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -110,8 +110,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_05_Password_Less_Than_6_Chars() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -127,8 +127,8 @@ public class Level_03_Register_Apply_POM{
 
 	@Test
 	public void Register_06_Invalid_Confirm_Password() {
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		homePage.openRegisterPage();
+		registerPage = new UserRegisterPageObject(driver);
 
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);

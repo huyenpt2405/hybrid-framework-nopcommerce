@@ -9,13 +9,13 @@
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_III"/>
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_POM"/>
       -->
-      <class name="com.nopcommerce.user.Level_06_Login_POM_Page_Generator_Manager3"/>
+      <class name="com.nopcommerce.user.Level_08_Switch_Role"/>
     </classes>
   </test> <!-- Test -->
   <test name="Run on Chrome">
   	<parameter name="browser" value="chrome"></parameter>
     <classes>
-      <class name="com.nopcommerce.user.Level_06_Login_POM_Page_Generator_Manager3"/>
+      <class name="com.nopcommerce.user.Level_08_Switch_Role"/>
     </classes>
   </test>
 </suite> <!-- Suite -->

@@ -14,22 +14,23 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import commons.PageGeneratorManager;
+import pageObjects.nopcommerce.user.UserHomePageObject;
+import pageObjects.nopcommerce.user.UserLoginPageObject;
+import pageObjects.nopcommerce.user.UserRegisterPageObject;
 
 public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 	private WebDriver driver;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
 	private String firstName, lastName, password, existingEmail, notFoundEmail, invalidEmail, incorrectPassword;
 	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = openMultiBrowser(browserName);
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getUserHomePage(driver);
 		
 		firstName = "Automation";
 		lastName = "FC";
@@ -39,7 +40,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 		notFoundEmail = "aut" + generateFakeNumber() + "@gmial.com";
 		existingEmail = "automationfc" + generateFakeNumber() + "@gmail.com";
 		
-		registerPage = homePage.clickToRegisterLink();
+		registerPage = homePage.openRegisterPage();
 		
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -57,7 +58,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 
 	@Test
 	public void Login_01_Empty_Data() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.clickToLoginButton();
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextBox(), "Please enter your email");
@@ -65,7 +66,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 
 	@Test
 	public void Login_02_Invalid_Email() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.inputToEmailTextBox(invalidEmail);
 		
@@ -75,7 +76,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 	
 	@Test
 	public void Login_03_Email_Not_Found() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.inputToEmailTextBox(notFoundEmail);
 		
@@ -85,7 +86,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.inputToEmailTextBox(existingEmail);
 		
@@ -95,7 +96,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 
 	@Test
 	public void Login_05_Existing_Email_Incorrect_Password() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.inputToEmailTextBox(existingEmail);
 		loginPage.inputToPasswordTextBox(incorrectPassword);
@@ -106,7 +107,7 @@ public class Level_06_Login_POM_Page_Generator_Manager3 extends BaseTest {
 
 	@Test
 	public void Login_06_Success() {
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		loginPage.inputToEmailTextBox(existingEmail);
 		loginPage.inputToPasswordTextBox(password);
