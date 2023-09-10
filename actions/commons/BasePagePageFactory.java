@@ -106,10 +106,6 @@ public class BasePagePageFactory {
 		driver.switchTo().window(parentID);
 	}
 
-	private WebElement getWebElement(WebDriver driver, String xpathLocator) {
-		return driver.findElement(getByXpath(xpathLocator));
-	}
-
 	private List<WebElement> getWebElements(WebDriver driver, String xpathLocator) {
 		return driver.findElements(getByXpath(xpathLocator));
 	}
@@ -329,5 +325,4 @@ public class BasePagePageFactory {
 	}
 	
 	private long longTimeout = 30;
-	private long shortTimeout = 5;
 }
