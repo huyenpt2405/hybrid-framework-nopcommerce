@@ -20,6 +20,7 @@ import pageObjects.nopcommerce.user.UserCustomerInfoPageObject;
 import pageObjects.nopcommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopcommerce.user.UserRewardPointPageObject;
 import pageUIs.nopcommerce.user.UserBasePageUI;
+import utilities.GlobalConstants;
 
 public class BasePage {
 	
@@ -469,5 +470,5 @@ public class BasePage {
 		}
 	}
 	
-	private long longTimeout = 30;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 }

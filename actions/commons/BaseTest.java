@@ -15,7 +15,7 @@ import utilities.GlobalConstants;
 
 public class BaseTest {
 	private WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
+	String projectPath = GlobalConstants.PROJECT_PATH;
 	
 	protected WebDriver openMultiBrowser(String browserName) {
 		// Coc coc - 5,6 version so voi chromedriver
