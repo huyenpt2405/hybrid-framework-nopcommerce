@@ -58,6 +58,45 @@ public class BaseTest {
 		return driver;
 	}
 	
+	protected WebDriver openMultiBrowser(String browserName, String appUrl) {
+		if (browserName.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else if (browserName.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		} else if (browserName.equals("h_chrome")) {
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920x1080");
+			driver = new ChromeDriver(options);
+		} else if (browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		} else if (browserName.equals("cococ")) {
+			WebDriverManager.chromedriver().driverVersion("versionchrome - 6").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\");
+			driver = new ChromeDriver(options);
+		}  else if (browserName.equals("brave")) {
+			WebDriverManager.chromedriver().driverVersion("versionChrome-4").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\");
+			driver = new ChromeDriver(options);
+		} else if (browserName.equals("opera")) {
+			WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
+		} else {
+			throw new RuntimeException("Cannot find browser");
+		}
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get(appUrl);
+		return driver;
+	}
+
+	
 
 	protected int generateFakeNumber() {
 		Random random = new Random();

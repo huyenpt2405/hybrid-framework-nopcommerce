@@ -1,18 +1,14 @@
 package com.nopcommerce.user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
 import commons.BaseTest;
 import pageObjects.nopcommerce.user.UserHomePageObject;
 import pageObjects.nopcommerce.user.UserLoginPageObject;
@@ -23,7 +19,7 @@ public class Level_04_Login_Multiple_Browser extends BaseTest {
 	private UserHomePageObject homePage;
 	private UserRegisterPageObject registerPage;
 	private UserLoginPageObject loginPage;
-	private String firstName, lastName, password, existingEmail, notFoundEmail, invalidEmail, incorrectPassword;
+	private String firstName, lastName, password, existingEmail, invalidEmail;
 	
 	@Parameters("browser")
 	@BeforeClass
@@ -34,9 +30,7 @@ public class Level_04_Login_Multiple_Browser extends BaseTest {
 		firstName = "Automation";
 		lastName = "FC";
 		password = "123456";
-		incorrectPassword = "12345678";
 		invalidEmail = "automation@.123098@gmail.com";
-		notFoundEmail = "aut" + generateFakeNumber() + "@gmial.com";
 		existingEmail = "automationfc" + generateFakeNumber() + "@gmail.com";
 		
 		homePage.openRegisterPage();

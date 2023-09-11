@@ -61,7 +61,7 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 	}
 	
 	@Test
-	public void User_03_Customer_Info() throws InterruptedException {
+	public void User_03_Customer_Info() {
 		customerInfoPage = homePage.openMyAccountPage();
 		
 		Assert.assertTrue(customerInfoPage.isCustomerInfoPageDisplayed());

@@ -6,6 +6,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -113,11 +114,11 @@ public class BasePage {
 		driver.switchTo().window(parentID);
 	}
 
-	private WebElement getWebElement(WebDriver driver, String locator) {
+	public WebElement getWebElement(WebDriver driver, String locator) {
 		return driver.findElement(getByLocator(locator));
 	}
 
-	private List<WebElement> getWebElements(WebDriver driver, String locator) {
+	public List<WebElement> getWebElements(WebDriver driver, String locator) {
 		return driver.findElements(getByLocator(locator));
 	}
 
@@ -261,6 +262,16 @@ public class BasePage {
 	public void hoverMouseToElement(WebDriver driver, String locator) {
 		Actions action = new Actions(driver);
 		action.moveToElement(getWebElement(driver, locator)).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, locator), key).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key, String...dynamicValues) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, getDynamicLocator(locator, (String[]) dynamicValues)), key).perform();
 	}
 
 	public void scrollToBottomPage(WebDriver driver) {
