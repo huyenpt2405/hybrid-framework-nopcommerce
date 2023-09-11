@@ -54,4 +54,42 @@ public class HomePageObject extends BasePage {
 		
 		return allRowValuesAtAllPage;
 	}
+
+	public void enterToTextboxByColumnNameAtRowNumber(String columnName, String rowNumber, String value) {
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		waitForElementVisible(driver, HomePageUI.ROW_TEXTBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+		sendKeyToElement(driver, HomePageUI.ROW_TEXTBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, value, rowNumber, String.valueOf(columnIndex));
+	}
+
+	public void selectDropdownByColumnNameAtRowNumber(String columnName, String rowNumber, String valueSelect) {
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		waitForElementClickable(driver, HomePageUI.ROW_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+		selectItemInDefaultDropdown(driver, HomePageUI.ROW_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, valueSelect, rowNumber, String.valueOf(columnIndex));
+	}
+	
+	public void checkToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		waitForElementClickable(driver, HomePageUI.ROW_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+		checkToDefaultRadioCheckbox(driver, HomePageUI.ROW_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+	}
+
+	public void uncheckToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		waitForElementClickable(driver, HomePageUI.ROW_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+		uncheckToDefaultCheckbox(driver, HomePageUI.ROW_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowNumber, String.valueOf(columnIndex));
+	}
+	
+	public void clickToLoadMoreButton() {
+		waitForElementClickable(driver, HomePageUI.LOAD_MORE_BUTTON);
+		clickToElement(driver, HomePageUI.LOAD_MORE_BUTTON);
+	}
+
+	public void clickToButtonByRowIndexAndTitle(String rowNumber, String buttonTitle) {
+		waitForElementClickable(driver, HomePageUI.BUTTON_BY_ROW_INDEX_AND_TITLE, rowNumber, buttonTitle);
+		clickToElement(driver, HomePageUI.BUTTON_BY_ROW_INDEX_AND_TITLE, rowNumber, buttonTitle);
+	}
 }

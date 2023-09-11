@@ -121,7 +121,7 @@ public class BasePage {
 	public List<WebElement> getWebElements(WebDriver driver, String locator) {
 		return driver.findElements(getByLocator(locator));
 	}
-
+	
 	public void clickToElement(WebDriver driver, String locator) {
 		getWebElement(driver, locator).click();
 	}
@@ -152,6 +152,11 @@ public class BasePage {
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locator, String textItem) {
 		Select select = new Select(getWebElement(driver, locator));
+		select.selectByVisibleText(textItem);
+	}
+	
+	public void selectItemInDefaultDropdown(WebDriver driver, String locator, String textItem, String...dynamicValues) {
+		Select select = new Select(getWebElement(driver, getDynamicLocator(locator, (String[]) dynamicValues)));
 		select.selectByValue(textItem);
 	}
 
@@ -159,9 +164,19 @@ public class BasePage {
 		Select select = new Select(getWebElement(driver, locator));
 		return select.getFirstSelectedOption().getText();
 	}
+	
+	public String getSelectedItemDefaultDropdown(WebDriver driver, String locator, String... dynamicValues) {
+		Select select = new Select(getWebElement(driver, getDynamicLocator(locator, dynamicValues)));
+		return select.getFirstSelectedOption().getText();
+	}
 
 	public boolean isDropdownMultiple(WebDriver driver, String locator) {
 		Select select = new Select(getWebElement(driver, locator));
+		return select.isMultiple();
+	}
+	
+	public boolean isDropdownMultiple(WebDriver driver, String locator, String... dynamicValues) {
+		Select select = new Select(getWebElement(driver, getDynamicLocator(locator, dynamicValues)));
 		return select.isMultiple();
 	}
 
@@ -223,6 +238,14 @@ public class BasePage {
 		}
 	}
 
+	public void checkToDefaultRadioCheckbox(WebDriver driver, String locator, String... dynamicValues) {
+		WebElement element = getWebElement(driver, getDynamicLocator(locator, dynamicValues));
+		
+		if (!element.isSelected()) {
+			element.click();
+		}
+	}
+	
 	public void uncheckToDefaultCheckbox(WebDriver driver, String locator) {
 		WebElement element = getWebElement(driver, locator);
 
@@ -231,6 +254,14 @@ public class BasePage {
 		}
 	}
 
+	public void uncheckToDefaultCheckbox(WebDriver driver, String locator, String... dynamicValues) {
+		WebElement element = getWebElement(driver, getDynamicLocator(locator, dynamicValues));
+		
+		if (element.isSelected()) {
+			element.click();
+		}
+	}
+	
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isDisplayed();
 	}
@@ -249,6 +280,10 @@ public class BasePage {
 
 	public boolean isElementSelected(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isSelected();
+	}
+	
+	public boolean isElementSelected(WebDriver driver, String locator, String...dynamicValues) {
+		return getWebElement(driver, getDynamicLocator(locator, dynamicValues)).isSelected();
 	}
 
 	public void switchToFrameIframe(WebDriver driver, String locator) {

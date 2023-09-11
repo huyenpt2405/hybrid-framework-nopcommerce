@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.testng.annotations.AfterClass;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.GlobalConstants;
@@ -101,5 +102,10 @@ public class BaseTest {
 	protected int generateFakeNumber() {
 		Random random = new Random();
 		return random.nextInt(99999);
+	}
+	
+	@AfterClass
+	public void afterClass() {
+		driver.quit();
 	}
 }

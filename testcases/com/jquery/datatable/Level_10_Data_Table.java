@@ -1,9 +1,6 @@
 package com.jquery.datatable;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,7 +10,6 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.jquery.HomePageObject;
 import pageObjects.jquery.PageGeneratorManager;
-import pageUIs.jquery.HomePageUI;
 
 public class Level_10_Data_Table extends BaseTest {
 	
@@ -49,6 +45,14 @@ public class Level_10_Data_Table extends BaseTest {
 	@Test
 	public void Table_03_Get_All_Row_Values() {
 		homePage.refreshCurrentPage(driver);
+		
+		homePage.getValueEachRowAtAllPage();
+	}
+	
+
+	@Test
+	public void Table_04_Enter_To_Texbox_By_Column_Name() {
+		homePage.openPageUrl(driver, null);;
 		
 		homePage.getValueEachRowAtAllPage();
 	}

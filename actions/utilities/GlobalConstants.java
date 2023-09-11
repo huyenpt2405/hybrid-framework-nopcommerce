@@ -6,6 +6,8 @@ public class GlobalConstants {
 	public static final String USER_PORTAL_URL = "https://demo.nopcommerce.com/";
 	public static final String ADMIN_URL = "https://admin-demo.nopcommerce.com/";
 	
+	public static final String TECHPANDA_ADMIN_URL = "http://live.techpanda.org/index.php/backendlogin/customer/";
+	
 	public static final String PROJECT_PATH = System.getProperty("user.dir");
 	public static final String UPLOAD_FILES_PATH = PROJECT_PATH + File.separator + "uploadFiles";
 	public static final String DOWNLOAD_FILES_PATH = PROJECT_PATH + File.separator + "downloadFiles";

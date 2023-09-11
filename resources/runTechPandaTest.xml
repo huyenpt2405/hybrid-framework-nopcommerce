@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="NopCommerce">
+  <parameter name="url" value="http://live.techpanda.org/index.php/"/>
+  <test name="Run on Firefox">
+  	<parameter name="browser" value="firefox"></parameter>
+    <classes>
+      <class name="com.techpanda.user.Level_10_Data_Table_Data_Grid_Excercise"/>
+    </classes>
+  </test>
+</suite>
