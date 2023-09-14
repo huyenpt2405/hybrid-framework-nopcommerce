@@ -20,6 +20,7 @@ import pageObjects.nopcommerce.user.UserAddressPageObject;
 import pageObjects.nopcommerce.user.UserCustomerInfoPageObject;
 import pageObjects.nopcommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopcommerce.user.UserRewardPointPageObject;
+import pageUIs.base.BasePageUI;
 import pageUIs.nopcommerce.user.UserBasePageUI;
 import utilities.GlobalConstants;
 
@@ -262,6 +263,18 @@ public class BasePage {
 		}
 	}
 	
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+		String filePath = GlobalConstants.UPLOAD_FILES_PATH;
+		String fullFileName = "";
+		
+		for (String fileName: fileNames) {
+			fullFileName += filePath + fileName + "\n";
+		}
+		
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, BasePageUI.FILE_UPLOAD_INPUT).sendKeys(fullFileName);
+	}
+	
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isDisplayed();
 	}
@@ -383,6 +396,18 @@ public class BasePage {
 		boolean status = (boolean) jsExecutor.executeScript(
 				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
 				getWebElement(driver, locator));
+		if (status) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isImageLoaded(WebDriver driver, String locator, String... dynamicValues) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		boolean status = (boolean) jsExecutor.executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
+				getWebElement(driver, getDynamicLocator(locator, dynamicValues)));
 		if (status) {
 			return true;
 		} else {

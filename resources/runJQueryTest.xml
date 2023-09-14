@@ -6,7 +6,7 @@
   <test name="Run JQuery on Firefox">
   	<parameter name="browser" value="firefox"></parameter>
     <classes>
-      <class name="com.jquery.datatable.Level_10_Data_Table"/>
+      <class name="com.jquery.dataTable.Level_10_Data_Table"/>
     </classes>
   </test>
   -->
@@ -15,7 +15,7 @@
   <test name="Run JQuery Append Grid on Firefox">
   	<parameter name="browser" value="firefox"></parameter>
     <classes>
-      <class name="com.jquery.datatable.Level_10_Data_Table_Append_Grid"/>
+      <class name="com.jquery.dataTable.Level_10_Data_Table_Append_Grid"/>
     </classes>
   </test>
 </suite>
