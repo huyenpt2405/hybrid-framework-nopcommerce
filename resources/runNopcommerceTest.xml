@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="NopCommerce">
+  <listeners>
+  	<listener class-name="commons.MethodListener" />
+  	<listener class-name="reportConfig.ExtentTestListener" />
+  	<!--
+  	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="reportConfig.ReportNGListener"/>
+  	-->
+
+  </listeners>
   <test name="Run on Firefox">
   	<parameter name="browser" value="firefox"></parameter>
     <classes>
@@ -9,7 +19,7 @@
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_III"/>
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_POM"/>
       -->
-      <class name="com.nopcommerce.user.Level_09_Dynamic_Locator"/>
+      <class name="com.nopcommerce.user.Level_15_Extent_Report_V5"/>
     </classes>
   </test> <!-- Test -->
 	<!-- 
