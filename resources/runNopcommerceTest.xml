@@ -2,7 +2,9 @@
 <suite name="NopCommerce">
   <listeners>
   	<listener class-name="commons.MethodListener" />
+  	<!-- 
   	<listener class-name="reportConfig.ExtentTestListener" />
+  	-->
   	<!--
   	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
@@ -19,7 +21,9 @@
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_BasePage_III"/>
 	      <class name="com.nopcommerce.user.User_01_Register_Apply_POM"/>
       -->
-      <class name="com.nopcommerce.user.Level_15_Extent_Report_V5"/>
+      
+      <!--<class name="com.nopcommerce.commons.Common_02_Register_Cookie"/>-->
+      <class name="com.nopcommerce.user.Level_17_Custom_Close_Browser"/>
     </classes>
   </test> <!-- Test -->
 	<!-- 
