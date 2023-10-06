@@ -1,0 +1,7 @@
+[06-10-2023 15:46:10.961] - Register - Step 01: Open Register Page
+[06-10-2023 15:46:11.559] - Register - Step 02: Input data to 'First name' textbox: Automation
+[06-10-2023 15:46:11.618] - Register - Step 03: Input data to 'Lastname' textbox: FC
+[06-10-2023 15:46:11.676] - Register - Step 04: Input data to 'Email' textbox: automationfc49423@gmail.com
+[06-10-2023 15:46:11.752] - Register - Step 05: Input data to 'Password' textbox: 123456
+[06-10-2023 15:46:11.815] - Register - Step 06: Input data to 'Confirm password' textbox: 123456
+[06-10-2023 15:46:11.866] - Register - Step 07: click to Register button
