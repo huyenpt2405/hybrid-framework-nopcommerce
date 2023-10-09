@@ -23,7 +23,7 @@
       -->
       
       <!--<class name="com.nopcommerce.commons.Common_02_Register_Cookie"/>-->
-      <class name="com.nopcommerce.user.Level_17_Custom_Close_Browser"/>
+      <class name="com.nopcommerce.user.Level_18_Pattern_Object"/>
     </classes>
   </test> <!-- Test -->
 	<!-- 
