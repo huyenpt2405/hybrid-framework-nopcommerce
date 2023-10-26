@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SauceLab">
+  <listeners>
+  	<listener class-name="commons.MethodListener" /> <!-- need to use verify -->
+  	<listener class-name="reportConfig.ExtentTestListener" />
+  </listeners>
+  <test name="Run on Firefox">
+  	<parameter name="browser" value="firefox" />
+  	<parameter name="appUrl" value="https://www.saucedemo.com" />
+    <classes>
+      <class name="com.sauceLab.sortData.Level_19_Sort_Asc_Desc" />
+    </classes>
+  </test>
+</suite>

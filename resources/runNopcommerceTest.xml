@@ -23,7 +23,7 @@
       -->
       
       <!--<class name="com.nopcommerce.commons.Common_02_Register_Cookie"/>-->
-      <class name="com.nopcommerce.user.Level_18_Pattern_Object"/>
+      <class name="com.nopcommerce.user.Level_20_Fake_Data_P1_Faker"/>
     </classes>
   </test> <!-- Test -->
 	<!-- 

@@ -49,5 +49,8 @@
 	<classpathentry kind="lib" path="libExtentReportV5/lombok-1.18.12.jar"/>
 	<classpathentry kind="lib" path="libExtentReportV5/reactive-streams-1.0.3.jar"/>
 	<classpathentry kind="lib" path="libExtentReportV5/rxjava-3.0.4.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/generex-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/javafaker-1.0.1.jar"/>
+	<classpathentry kind="lib" path="libJavaFaker/snakeyaml-1.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

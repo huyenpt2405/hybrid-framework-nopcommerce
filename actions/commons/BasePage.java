@@ -1,5 +1,11 @@
 package commons;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +30,7 @@ import pageObjects.nopcommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopcommerce.user.UserRewardPointPageObject;
 import pageUIs.base.BasePageUI;
 import pageUIs.nopcommerce.user.UserBasePageUI;
+import pageUIs.sauceLab.sortData.ProductPageUI;
 import utilities.GlobalConstants;
 
 public class BasePage {
@@ -612,6 +619,135 @@ public class BasePage {
 	public void clickToButtonByText(WebDriver driver, String buttonText) {
 		waitForElementClickable(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
 		clickToElement(driver, UserBasePageUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+	}
+	
+	private ArrayList<String> getStringByLocator(WebDriver driver, String locator) {
+		waitForAllElementsVisible(driver, locator);
+		List<WebElement> elements = getWebElements(driver, locator);
+		
+		ArrayList<String> stringValues = new ArrayList<>();
+		for (WebElement element : elements) {
+			stringValues.add(element.getText());
+		}
+		return stringValues;
+	}
+
+	public boolean isDataStringSortedAscending(WebDriver driver, String locator) {
+		ArrayList<String> arrayList = getStringByLocator(driver, locator);
+		ArrayList<String> sortedList = new ArrayList<String>(); 
+
+		for (String name : arrayList) {
+			sortedList.add(name);
+		}
+		
+		Collections.sort(sortedList);
+
+		return sortedList.equals(arrayList);
+	}
+	
+	public boolean isDataStringSortedDescending(WebDriver driver, String locator) {
+		ArrayList<String> arrayList = getStringByLocator(driver, locator);
+		ArrayList<String> sortedList = new ArrayList<String>(); 
+
+		for (String name : arrayList) {
+			sortedList.add(name);
+		}
+		
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		
+		return sortedList.equals(arrayList);
+	}
+	
+	public boolean isDataFloatSortedAscending(WebDriver driver, String locator) {
+		ArrayList<Float> arrayList = getFloatValueByLocator(driver, locator);
+		ArrayList<Float> sortedList = new ArrayList<Float>(); 
+		for (float number : arrayList) {
+			sortedList.add(number);
+		}
+		
+		Collections.sort(sortedList);
+		
+		return sortedList.equals(arrayList);
+	}
+	
+	public boolean isDataFloatSortedDescending(WebDriver driver, String locator) {
+		ArrayList<Float> arrayList = getFloatValueByLocator(driver, locator);
+		ArrayList<Float> sortedList = new ArrayList<Float>(); 
+		for (float number : arrayList) {
+			sortedList.add(number);
+		}
+		
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		
+		return sortedList.equals(arrayList);
+	}
+	
+	private ArrayList<Float> getFloatValueByLocator(WebDriver driver, String locator) {
+		waitForAllElementsVisible(driver, locator);
+		List<WebElement> elements = getWebElements(driver, locator);
+		
+		ArrayList<Float> floatValues = new ArrayList<>();
+		for (WebElement element : elements) {
+			String priceText = element.getText().replace("$", "").trim();
+			floatValues.add(Float.parseFloat(priceText));
+		}
+		return floatValues;
+	}
+	
+	
+	private ArrayList<Date> getDateTimeValueByLocator(WebDriver driver, String locator) {
+		waitForAllElementsVisible(driver, locator);
+		List<WebElement> elements = getWebElements(driver, locator);
+		
+		ArrayList<Date> dateValues = new ArrayList<Date>();
+		for (WebElement element : elements) {
+			dateValues.add(convertStringToDate(element.getText()));
+		}
+		return dateValues;
+	}
+	
+	public boolean isDateSortedAscending(WebDriver driver, String locator) {
+		ArrayList<Date> arrayList = getDateTimeValueByLocator(driver, locator);
+		ArrayList<Date> sortedList = new ArrayList<Date>(); 
+		for (Date date : arrayList) {
+			sortedList.add(date);
+		}
+		
+		Collections.sort(sortedList);
+		
+		return sortedList.equals(arrayList);
+	}
+	
+	public boolean isDateSortedDescending(WebDriver driver, String locator) {
+		ArrayList<Date> arrayList = getDateTimeValueByLocator(driver, locator);
+		ArrayList<Date> sortedList = new ArrayList<Date>(); 
+		for (Date date : arrayList) {
+			sortedList.add(date);
+		}
+		
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+		
+		return sortedList.equals(arrayList);
+	}
+	
+	public Date convertStringToDate(String dateInString) {
+		dateInString = dateInString.replace(",", "");
+		SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+		
+		Date date = null;
+		try {
+			date = formatter.parse(dateInString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
+	
+	public long getRandomNumberByDateTime() {
+		return Calendar.getInstance().getTimeInMillis() % 100000;
 	}
 	
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
