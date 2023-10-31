@@ -10,11 +10,12 @@ public class UserAddressPageObject extends BasePage {
 	private WebDriver driver;
 
 	public UserAddressPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public boolean isAddressPageDisplayed() {
-		waitForElementVisible(driver, UserAddressPageUI.ADDRESSES_PAGE_HEADER);
-		return isElementDisplayed(driver, UserAddressPageUI.ADDRESSES_PAGE_HEADER);
+		waitForElementVisible(UserAddressPageUI.ADDRESSES_PAGE_HEADER);
+		return isElementDisplayed(UserAddressPageUI.ADDRESSES_PAGE_HEADER);
 	}
 }

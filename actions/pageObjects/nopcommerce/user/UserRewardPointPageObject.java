@@ -8,6 +8,7 @@ public class UserRewardPointPageObject extends BasePage {
 	private WebDriver driver;
 
 	public UserRewardPointPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 }

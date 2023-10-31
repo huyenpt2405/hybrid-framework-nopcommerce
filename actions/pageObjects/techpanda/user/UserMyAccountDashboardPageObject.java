@@ -9,16 +9,17 @@ public class UserMyAccountDashboardPageObject extends BasePage {
 	WebDriver driver;
 
 	public UserMyAccountDashboardPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public String getContactInfo() {
-		waitForElementVisible(driver, UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
-		return getElementText(driver, UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
+		waitForElementVisible(UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
+		return getElementText(UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
 	}
 	
 	public boolean isHasContactInfo(String contactInfo) {
-		waitForElementVisible(driver, UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
-		return getElementText(driver, UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT).contains(contactInfo);
+		waitForElementVisible(UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT);
+		return getElementText(UserMyAccountDashboardPageUI.CONTACT_INFO_TEXT).contains(contactInfo);
 	}
 }

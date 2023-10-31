@@ -10,17 +10,18 @@ public class AdminLoginPageObject extends BasePage {
 	WebDriver driver;
 
 	public AdminLoginPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void enterToTextboxByID(String textboxID, String value) {
-		waitForElementVisible(driver, AdminLoginPageUI.TEXTBOX_BY_ID, textboxID);
-		sendKeyToElement(driver, AdminLoginPageUI.TEXTBOX_BY_ID, value, textboxID);
+		waitForElementVisible(AdminLoginPageUI.TEXTBOX_BY_ID, textboxID);
+		sendKeyToElement(AdminLoginPageUI.TEXTBOX_BY_ID, value, textboxID);
 	}
 
 	public AdminCustomerPageObject clickToLoginButton() {
-		waitForElementClickable(driver, AdminLoginPageUI.LOGIN_BUTTON);
-		clickToElement(driver, AdminLoginPageUI.LOGIN_BUTTON);
+		waitForElementClickable(AdminLoginPageUI.LOGIN_BUTTON);
+		clickToElement(AdminLoginPageUI.LOGIN_BUTTON);
 		return PageGeneratorManagerTechPanda.getAdminCustomerPage(driver);
 	}
 }

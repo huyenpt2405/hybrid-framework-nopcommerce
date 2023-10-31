@@ -41,7 +41,6 @@ public class Common_02_Register_Cookie extends BaseTest {
 		loginPage.inputToEmailTextBox(emailAddress);
 		loginPage.inputToPasswordTextBox(password);
 		homePage = loginPage.clickToLoginButton();
-		cookies = homePage.getAllCooies(driver);
 	}
 
 	@AfterTest

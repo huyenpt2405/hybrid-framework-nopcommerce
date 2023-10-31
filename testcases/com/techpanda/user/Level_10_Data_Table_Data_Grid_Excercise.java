@@ -52,7 +52,7 @@ public class Level_10_Data_Table_Data_Grid_Excercise extends BaseTest {
 	@Test
 	public void User_02_Swith_To_Admin() {
 		adminLoginPage = PageGeneratorManagerTechPanda.getAdminLoginPage(driver);
-		adminLoginPage.openPageUrl(driver, GlobalConstants.TECHPANDA_ADMIN_URL);
+		adminLoginPage.openPageUrl(GlobalConstants.TECHPANDA_ADMIN_URL);
 		
 		adminLoginPage.enterToTextboxByID("username", adminUserName);
 		adminLoginPage.enterToTextboxByID("login", adminPassword);

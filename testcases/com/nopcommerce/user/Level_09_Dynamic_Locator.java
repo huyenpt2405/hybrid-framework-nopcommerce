@@ -70,18 +70,18 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 	@Test
 	public void User_04_Switch_Page() {
 		// Switch to Address Page
-		addressPage = (UserAddressPageObject) customerInfoPage.openPageAtMyAccountByName(driver, "Addresses");;
+		addressPage = (UserAddressPageObject) customerInfoPage.openPageAtMyAccountByName("Addresses");;
 		
 		// switch to Reward Point Page
-		rewardPointPage = (UserRewardPointPageObject) addressPage.openPageAtMyAccountByName(driver, "Reward points");
+		rewardPointPage = (UserRewardPointPageObject) addressPage.openPageAtMyAccountByName("Reward points");
 		
 		// Switch to My product review
-		myProductReviewPage = (UserMyProductReviewPageObject) rewardPointPage.openPageAtMyAccountByName(driver, "My product reviews");
+		myProductReviewPage = (UserMyProductReviewPageObject) rewardPointPage.openPageAtMyAccountByName("My product reviews");
 		
 		// Switch to address page
-		addressPage = (UserAddressPageObject) myProductReviewPage.openPageAtMyAccountByName(driver, "Addresses");
+		addressPage = (UserAddressPageObject) myProductReviewPage.openPageAtMyAccountByName("Addresses");
 		// switch to customer info page
-		customerInfoPage = (UserCustomerInfoPageObject) addressPage.openPageAtMyAccountByName(driver, "Customer info");
+		customerInfoPage = (UserCustomerInfoPageObject) addressPage.openPageAtMyAccountByName("Customer info");
 		
 	}
 

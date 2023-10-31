@@ -10,17 +10,18 @@ public class UserRegisterPageObject extends BasePage {
 	WebDriver driver;
 
 	public UserRegisterPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void enterToTextbox(String elementID, String value) {
-		waitForElementVisible(driver, UserRegisterPageUI.TEXTBOX_BY_ID, elementID);
-		sendKeyToElement(driver, UserRegisterPageUI.TEXTBOX_BY_ID, value, elementID);
+		waitForElementVisible(UserRegisterPageUI.TEXTBOX_BY_ID, elementID);
+		sendKeyToElement(UserRegisterPageUI.TEXTBOX_BY_ID, value, elementID);
 	}
 
 	public UserMyAccountDashboardPageObject clickToRegisterButton() {
-		waitForElementClickable(driver, UserRegisterPageUI.REGISTER_BUTTON);
-		clickToElement(driver, UserRegisterPageUI.REGISTER_BUTTON);
+		waitForElementClickable(UserRegisterPageUI.REGISTER_BUTTON);
+		clickToElement(UserRegisterPageUI.REGISTER_BUTTON);
 		return PageGeneratorManagerTechPanda.getUserMyAccountDashboardPage(driver);
 	}
 }

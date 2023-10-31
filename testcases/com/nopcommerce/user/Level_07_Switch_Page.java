@@ -70,19 +70,19 @@ public class Level_07_Switch_Page extends BaseTest {
 	@Test
 	public void User_04_Switch_Page() {
 		// Switch to Address Page
-		addressPage = customerInfoPage.openAddressPage(driver);
+		addressPage = customerInfoPage.openAddressPage();
 		
 		// switch to Reward Point Page
-		rewardPointPage = addressPage.openRewardPointPage(driver);
+		rewardPointPage = addressPage.openRewardPointPage();
 		
 		// Switch to My product review
-		myProductReviewPage = rewardPointPage.openMyProductReviewPage(driver);
+		myProductReviewPage = rewardPointPage.openMyProductReviewPage();
 		
 		// Switch to address page
-		addressPage = myProductReviewPage.openAddressPage(driver);
+		addressPage = myProductReviewPage.openAddressPage();
 		
 		// switch to customer info page
-		customerInfoPage = addressPage.openCustomerInfoPage(driver);
+		customerInfoPage = addressPage.openCustomerInfoPage();
 		
 	}
 

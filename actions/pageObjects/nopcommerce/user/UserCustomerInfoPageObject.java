@@ -9,12 +9,13 @@ public class UserCustomerInfoPageObject extends BasePage {
 	private WebDriver driver;
 
 	public UserCustomerInfoPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public boolean isCustomerInfoPageDisplayed() {
-		waitForElementVisible(driver, UserCustomerInfoPageUI.CUSTOMER_INFO_TEXT);
-		return isElementDisplayed(driver, UserCustomerInfoPageUI.CUSTOMER_INFO_TEXT);
+		waitForElementVisible(UserCustomerInfoPageUI.CUSTOMER_INFO_TEXT);
+		return isElementDisplayed(UserCustomerInfoPageUI.CUSTOMER_INFO_TEXT);
 	}
 	
 }

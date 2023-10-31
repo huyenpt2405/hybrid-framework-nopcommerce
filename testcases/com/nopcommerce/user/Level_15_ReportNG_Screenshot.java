@@ -88,25 +88,25 @@ public class Level_15_ReportNG_Screenshot extends BaseTest {
 	@Test
 	public void User_04_Switch_Page() {
 		log.info("Switch Page - Step 01: Open 'Address' page");
-		addressPage = customerInfoPage.openAddressPage(driver);
+		addressPage = customerInfoPage.openAddressPage();
 		
 		log.info("Switch Page - Step 02: Verify 'Address' page displayed");
 		Assert.assertFalse(addressPage.isAddressPageDisplayed());
 		
 		log.info("Switch Page - Step 03: Open 'Reward Point' page");
-		rewardPointPage = addressPage.openRewardPointPage(driver);
+		rewardPointPage = addressPage.openRewardPointPage();
 		
 		log.info("Switch Page - Step 04: Open 'My Product Review' page");
-		myProductReviewPage = rewardPointPage.openMyProductReviewPage(driver);
+		myProductReviewPage = rewardPointPage.openMyProductReviewPage();
 		
 		log.info("Switch Page - Step 05: Open 'Address' page");
-		addressPage = myProductReviewPage.openAddressPage(driver);
+		addressPage = myProductReviewPage.openAddressPage();
 		
 		log.info("Switch Page - Step 06: Verify 'Address' page displayed");
 		Assert.assertFalse(addressPage.isAddressPageDisplayed());
 		
 		log.info("Switch Page - Step 07: Open 'Customer Info' page");
-		customerInfoPage = addressPage.openCustomerInfoPage(driver);
+		customerInfoPage = addressPage.openCustomerInfoPage();
 	}
 
 	@AfterClass

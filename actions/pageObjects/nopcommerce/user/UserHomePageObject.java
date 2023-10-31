@@ -12,37 +12,37 @@ public class UserHomePageObject extends BasePage {
 	
 
 	public UserHomePageObject(WebDriver driver) {
-		super();
+		super(driver);
 		this.driver = driver;
 	}
 
 	public UserRegisterPageObject openRegisterPage() {
-		waitForElementClickable(driver, UserHomePageUI.REGISTER_LINK);
-		clickToElement(driver, UserHomePageUI.REGISTER_LINK);
+		waitForElementClickable(UserHomePageUI.REGISTER_LINK);
+		clickToElement(UserHomePageUI.REGISTER_LINK);
 //		return new RegisterPageObject(driver);
 		return PageGeneratorManager.getUserRegisterPage(driver);
 	}
 
 	public UserLoginPageObject openLoginPage() {
-		waitForElementClickable(driver, UserHomePageUI.LOGIN_LINK);
-		clickToElement(driver, UserHomePageUI.LOGIN_LINK);
+		waitForElementClickable(UserHomePageUI.LOGIN_LINK);
+		clickToElement(UserHomePageUI.LOGIN_LINK);
 //		return new LoginPageObject(driver);
 		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 
 	public Object isMyAccountLinkDisplay() {
-		waitForElementVisible(driver, UserHomePageUI.MY_ACCOUNT_LINK);
-		return isElementDisplayed(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		waitForElementVisible(UserHomePageUI.MY_ACCOUNT_LINK);
+		return isElementDisplayed(UserHomePageUI.MY_ACCOUNT_LINK);
 	}
 
 	public Object isLogoutLinkDisplay() {
-		waitForElementVisible(driver, UserHomePageUI.LOGOUT_LINK);
-		return isElementDisplayed(driver, UserHomePageUI.LOGOUT_LINK);
+		waitForElementVisible(UserHomePageUI.LOGOUT_LINK);
+		return isElementDisplayed(UserHomePageUI.LOGOUT_LINK);
 	}
 
 	public UserCustomerInfoPageObject openMyAccountPage() {
-		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
-		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
+		waitForElementClickable(UserHomePageUI.MY_ACCOUNT_LINK);
+		clickToElement(UserHomePageUI.MY_ACCOUNT_LINK);
 		return PageGeneratorManager.getUserCustomerInfoPage(driver);
 	}
 

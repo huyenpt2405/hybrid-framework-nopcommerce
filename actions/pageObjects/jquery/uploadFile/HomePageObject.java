@@ -12,29 +12,30 @@ public class HomePageObject extends BasePage {
 	WebDriver driver;
 
 	public HomePageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void clickToStartButton() {
-		List<WebElement> startButtons = getWebElements(driver, HomePageUI.START_BUTTON);
+		List<WebElement> startButtons = getWebElements(HomePageUI.START_BUTTON);
 		for (WebElement button : startButtons) {
 			button.click();
 		}
 	}
 
 	public boolean isLoadedFileNameDisplayed(String fileName) {
-		waitForElementVisible(driver, HomePageUI.LOADED_FILE_NAME, fileName);
-		return isElementDisplayed(driver, HomePageUI.LOADED_FILE_NAME, fileName);
+		waitForElementVisible(HomePageUI.LOADED_FILE_NAME, fileName);
+		return isElementDisplayed(HomePageUI.LOADED_FILE_NAME, fileName);
 	}
 
 	public boolean isUploadedFileNameDisplayed(String fileName) {
-		waitForElementVisible(driver, HomePageUI.UPLOADED_FILE_NAME, fileName);
-		return isElementDisplayed(driver, HomePageUI.UPLOADED_FILE_NAME, fileName);
+		waitForElementVisible(HomePageUI.UPLOADED_FILE_NAME, fileName);
+		return isElementDisplayed(HomePageUI.UPLOADED_FILE_NAME, fileName);
 	}
 
 	public boolean isUploadedImageDisplayed(String fileName) {
-		waitForElementVisible(driver, HomePageUI.UPLOADED_IMAGE, fileName);
-		return isImageLoaded(driver, HomePageUI.UPLOADED_IMAGE, fileName);
+		waitForElementVisible(HomePageUI.UPLOADED_IMAGE, fileName);
+		return isImageLoaded(HomePageUI.UPLOADED_IMAGE, fileName);
 	}
 	
 	

@@ -9,12 +9,12 @@ public class AdminHomePageObject extends BasePage {
 	private WebDriver driver;
 
 	public AdminHomePageObject(WebDriver driver) {
-		super();
+		super(driver);
 		this.driver = driver;
 	}
 
 	public boolean isHeaderDisplayed() {
-		waitForElementVisible(driver, AdminHomePageUI.ADMIN_HOME_PAGE_HEADER);
-		return isElementDisplayed(driver, AdminHomePageUI.ADMIN_HOME_PAGE_HEADER);
+		waitForElementVisible(AdminHomePageUI.ADMIN_HOME_PAGE_HEADER);
+		return isElementDisplayed(AdminHomePageUI.ADMIN_HOME_PAGE_HEADER);
 	}
 }

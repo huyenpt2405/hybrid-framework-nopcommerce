@@ -10,12 +10,13 @@ public class UserLoginPageObject extends BasePage {
 	WebDriver driver;
 
 	public UserLoginPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public UserRegisterPageObject clickToCreateAccountLink() {
-		waitForElementClickable(driver, UserLoginPageUI.CREATE_ACCOUNT_LINK);
-		clickToElement(driver, UserLoginPageUI.CREATE_ACCOUNT_LINK);
+		waitForElementClickable(UserLoginPageUI.CREATE_ACCOUNT_LINK);
+		clickToElement(UserLoginPageUI.CREATE_ACCOUNT_LINK);
 		return PageGeneratorManagerTechPanda.getUserRegisterPage(driver);
 	}
 }

@@ -29,13 +29,13 @@ public class Level_20_Fake_Data_P2_Internal_File extends BaseTest {
 	public void User_01_Register() {
 		registerPage = homePage.openRegisterPage();
 		
-		registerPage.inputToTextboxByID(driver, UserData.Register.FIRSTNAME, "FirstName");
-		registerPage.inputToTextboxByID(driver, UserData.Register.LASTNAME, "LastName");
-		registerPage.inputToTextboxByID(driver, emailAddress, "Email");
-		registerPage.inputToTextboxByID(driver, UserData.Register.PASSWORD, "Password");
-		registerPage.inputToTextboxByID(driver, UserData.Register.PASSWORD, "ConfirmPassword");
+		registerPage.inputToTextboxByID(UserData.Register.FIRSTNAME, "FirstName");
+		registerPage.inputToTextboxByID(UserData.Register.LASTNAME, "LastName");
+		registerPage.inputToTextboxByID(emailAddress, "Email");
+		registerPage.inputToTextboxByID(UserData.Register.PASSWORD, "Password");
+		registerPage.inputToTextboxByID(UserData.Register.PASSWORD, "ConfirmPassword");
 		
- 		registerPage.clickToButtonByText(driver, "Register");
+ 		registerPage.clickToButtonByText("Register");
 // 		try {
 //			homePage = registerPage.clickToLogoutLink();
 //		} catch (Exception exception) {

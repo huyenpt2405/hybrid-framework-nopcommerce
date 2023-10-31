@@ -9,23 +9,23 @@ public class AdminLoginPageObject extends BasePage {
 	private WebDriver driver;
 
 	public AdminLoginPageObject(WebDriver driver) {
-		super();
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void inputToPasswordTextbox(String adminPassword) {
-		waitForElementVisible(driver, AdminLoginPageUI.ADMIN_PASSWORD_TEXTBOX);
-		sendKeyToElement(driver, AdminLoginPageUI.ADMIN_PASSWORD_TEXTBOX, adminPassword);
+		waitForElementVisible(AdminLoginPageUI.ADMIN_PASSWORD_TEXTBOX);
+		sendKeyToElement(AdminLoginPageUI.ADMIN_PASSWORD_TEXTBOX, adminPassword);
 	}
 
 	public void inputToEmailTextbox(String adminEmail) {
-		waitForElementVisible(driver, AdminLoginPageUI.ADMIN_EMAIL_TEXTBOX);
-		sendKeyToElement(driver, AdminLoginPageUI.ADMIN_EMAIL_TEXTBOX, adminEmail);
+		waitForElementVisible(AdminLoginPageUI.ADMIN_EMAIL_TEXTBOX);
+		sendKeyToElement(AdminLoginPageUI.ADMIN_EMAIL_TEXTBOX, adminEmail);
 	}
 
 	public AdminHomePageObject clickToLoginButton() {
-		waitForElementClickable(driver, AdminLoginPageUI.ADMIN_LOGIN_BUTTON);
-		clickToElement(driver, AdminLoginPageUI.ADMIN_LOGIN_BUTTON);
+		waitForElementClickable(AdminLoginPageUI.ADMIN_LOGIN_BUTTON);
+		clickToElement(AdminLoginPageUI.ADMIN_LOGIN_BUTTON);
 		return new AdminHomePageObject(driver);
 	}
 	

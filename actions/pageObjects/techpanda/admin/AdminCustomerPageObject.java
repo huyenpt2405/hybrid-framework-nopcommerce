@@ -10,17 +10,18 @@ public class AdminCustomerPageObject extends BasePage {
 	WebDriver driver;
 
 	public AdminCustomerPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void closePopUp() {
-		waitForElementClickable(driver, AdminCustomerPageUI.CLOSE_POPUP_BUTTON);
-		clickToElement(driver, AdminCustomerPageUI.CLOSE_POPUP_BUTTON);
+		waitForElementClickable(AdminCustomerPageUI.CLOSE_POPUP_BUTTON);
+		clickToElement(AdminCustomerPageUI.CLOSE_POPUP_BUTTON);
 	}
 
 	public void enterToHeaderFilterTextbox(String textboxID, String value) {
-		waitForElementVisible(driver, AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, textboxID);
-		sendKeyToElement(driver, AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, value, textboxID);
-		pressKeyToElement(driver, AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, Keys.ENTER, textboxID);
+		waitForElementVisible(AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, textboxID);
+		sendKeyToElement(AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, value, textboxID);
+		pressKeyToElement(AdminCustomerPageUI.HEADER_FILTER_TEXTBOX, Keys.ENTER, textboxID);
 	}
 }

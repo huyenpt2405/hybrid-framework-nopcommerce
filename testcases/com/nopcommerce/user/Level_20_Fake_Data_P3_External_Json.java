@@ -31,13 +31,13 @@ public class Level_20_Fake_Data_P3_External_Json extends BaseTest {
 	public void User_01_Register() {
 		registerPage = homePage.openRegisterPage();
 		
-		registerPage.inputToTextboxByID(driver, userData.getFirstName(), "FirstName");
-		registerPage.inputToTextboxByID(driver, userData.getLastName(), "LastName");
-		registerPage.inputToTextboxByID(driver, emailAddress, "Email");
-		registerPage.inputToTextboxByID(driver, userData.getPassword(), "Password");
-		registerPage.inputToTextboxByID(driver, userData.getPassword(), "ConfirmPassword");
+		registerPage.inputToTextboxByID(userData.getFirstName(), "FirstName");
+		registerPage.inputToTextboxByID(userData.getLastName(), "LastName");
+		registerPage.inputToTextboxByID(emailAddress, "Email");
+		registerPage.inputToTextboxByID(userData.getPassword(), "Password");
+		registerPage.inputToTextboxByID(userData.getPassword(), "ConfirmPassword");
 		
- 		registerPage.clickToButtonByText(driver, "Register");
+ 		registerPage.clickToButtonByText("Register");
 // 		try {
 //			homePage = registerPage.clickToLogoutLink();
 //		} catch (Exception exception) {

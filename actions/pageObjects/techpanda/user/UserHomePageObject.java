@@ -9,11 +9,12 @@ public class UserHomePageObject extends BasePage {
 	WebDriver driver;
 
 	public UserHomePageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void clickToFooterPageLink(String linkTitle) {
-		waitForElementClickable(driver, UserHomePageUI.FOOTER_PAGE_LINK, linkTitle);
-		clickToElement(driver, UserHomePageUI.FOOTER_PAGE_LINK, linkTitle);
+		waitForElementClickable(UserHomePageUI.FOOTER_PAGE_LINK, linkTitle);
+		clickToElement(UserHomePageUI.FOOTER_PAGE_LINK, linkTitle);
 	}
 }

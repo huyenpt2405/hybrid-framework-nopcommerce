@@ -22,7 +22,7 @@ public class Level_11_JQuery_Upload_File extends BaseTest {
 	
 	@Test
 	public void Upload_File_01_Single_File() {
-		homePage.uploadMultipleFiles(driver, javaFileName);
+		homePage.uploadMultipleFiles(javaFileName);
 		Assert.assertTrue(homePage.isLoadedFileNameDisplayed(javaFileName));
 		
 		homePage.clickToStartButton();
@@ -33,8 +33,8 @@ public class Level_11_JQuery_Upload_File extends BaseTest {
 
 	@Test
 	public void Upload_File_02_Multiple_File() {
-		homePage.refreshCurrentPage(driver);
-		homePage.uploadMultipleFiles(driver, javaFileName, pythonFileName);
+		homePage.refreshCurrentPage();
+		homePage.uploadMultipleFiles(javaFileName, pythonFileName);
 		Assert.assertTrue(homePage.isLoadedFileNameDisplayed(javaFileName));
 		Assert.assertTrue(homePage.isLoadedFileNameDisplayed(pythonFileName));
 		

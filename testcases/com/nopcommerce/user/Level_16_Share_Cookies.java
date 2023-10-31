@@ -24,8 +24,8 @@ public class Level_16_Share_Cookies extends BaseTest {
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 		
 		cookies = Common_02_Register_Cookie.cookies;
-		homePage.setCookies(driver, cookies);
-		homePage.refreshCurrentPage(driver);
+		homePage.setCookies(cookies);
+		homePage.refreshCurrentPage();
 	}
 
 

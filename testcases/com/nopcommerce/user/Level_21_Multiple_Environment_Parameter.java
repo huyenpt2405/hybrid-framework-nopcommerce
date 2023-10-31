@@ -35,22 +35,22 @@ public class Level_21_Multiple_Environment_Parameter extends BaseTest {
 		registerPage = homePage.openRegisterPage();
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 02: Input data to 'First name' textbox: " +  userData.getFirstName());
-		registerPage.inputToTextboxByID(driver, userData.getFirstName(), "FirstName");
+		registerPage.inputToTextboxByID(userData.getFirstName(), "FirstName");
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 03: Input data to 'Lastname' textbox: " +  userData.getLastName());
-		registerPage.inputToTextboxByID(driver, userData.getLastName(), "LastName");
+		registerPage.inputToTextboxByID(userData.getLastName(), "LastName");
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Input data to 'Email' textbox: " +  userData.getEmailAddress());
-		registerPage.inputToTextboxByID(driver, emailAddress, "Email");
+		registerPage.inputToTextboxByID(emailAddress, "Email");
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 05: Input data to 'Password' textbox: " +  userData.getPassword());
-		registerPage.inputToTextboxByID(driver, userData.getPassword(), "Password");
+		registerPage.inputToTextboxByID(userData.getPassword(), "Password");
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 06: Input data to 'Confirm password' textbox: " +  userData.getPassword());
-		registerPage.inputToTextboxByID(driver, userData.getPassword(), "ConfirmPassword");
+		registerPage.inputToTextboxByID(userData.getPassword(), "ConfirmPassword");
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 07: click to Register button");
- 		registerPage.clickToButtonByText(driver, "Register");
+ 		registerPage.clickToButtonByText("Register");
 // 		try {
 //			homePage = registerPage.clickToLogoutLink();
 //		} catch (Exception exception) {

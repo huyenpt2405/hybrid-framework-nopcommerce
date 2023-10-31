@@ -34,7 +34,7 @@ public class Level_10_Data_Table extends BaseTest {
 
 	@Test
 	public void Table_02_Enter_To_Header() {
-		homePage.refreshCurrentPage(driver);
+		homePage.refreshCurrentPage();
 		
 		homePage.enterToHeaderTextboxByLabel("Country", "Argentina");
 		homePage.enterToHeaderTextboxByLabel("Females", "338282");
@@ -44,7 +44,7 @@ public class Level_10_Data_Table extends BaseTest {
 	
 	@Test
 	public void Table_03_Get_All_Row_Values() {
-		homePage.refreshCurrentPage(driver);
+		homePage.refreshCurrentPage();
 		
 		homePage.getValueEachRowAtAllPage();
 	}
@@ -52,7 +52,7 @@ public class Level_10_Data_Table extends BaseTest {
 
 	@Test
 	public void Table_04_Enter_To_Texbox_By_Column_Name() {
-		homePage.openPageUrl(driver, null);;
+		homePage.openPageUrl(null);;
 		
 		homePage.getValueEachRowAtAllPage();
 	}

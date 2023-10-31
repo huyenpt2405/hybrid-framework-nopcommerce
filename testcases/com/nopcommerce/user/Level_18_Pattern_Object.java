@@ -29,13 +29,13 @@ public class Level_18_Pattern_Object extends BaseTest {
 	public void User_01_Register() {
 		registerPage = homePage.openRegisterPage();
 		
-		registerPage.inputToTextboxByID(driver, firstName, "FirstName");
-		registerPage.inputToTextboxByID(driver, lastName, "LastName");
-		registerPage.inputToTextboxByID(driver, emailAddress, "Email");
-		registerPage.inputToTextboxByID(driver, password, "Password");
-		registerPage.inputToTextboxByID(driver, password, "ConfirmPassword");
+		registerPage.inputToTextboxByID(firstName, "FirstName");
+		registerPage.inputToTextboxByID(lastName, "LastName");
+		registerPage.inputToTextboxByID(emailAddress, "Email");
+		registerPage.inputToTextboxByID(password, "Password");
+		registerPage.inputToTextboxByID(password, "ConfirmPassword");
 		
- 		registerPage.clickToButtonByText(driver, "Register");
+ 		registerPage.clickToButtonByText("Register");
 // 		try {
 //			homePage = registerPage.clickToLogoutLink();
 //		} catch (Exception exception) {
