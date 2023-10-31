@@ -746,10 +746,6 @@ public class BasePage {
 		return date;
 	}
 	
-	public long getRandomNumberByDateTime() {
-		return Calendar.getInstance().getTimeInMillis() % 100000;
-	}
-	
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
 }

@@ -19,7 +19,7 @@ public class DataHelper {
 	public String getLastName() {
 		return faker.address().lastName();
 	}
-	
+	 
 	public String getEmailAddress() {
 		return faker.internet().emailAddress();
 	}

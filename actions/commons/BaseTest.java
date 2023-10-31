@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +18,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.EnvironmentList;
 import utilities.GlobalConstants;
 
 public class BaseTest {
@@ -69,7 +71,7 @@ public class BaseTest {
 		return driver;
 	}
 	
-	protected WebDriver openMultiBrowser(String browserName, String appUrl) {
+	protected WebDriver openMultiBrowserByAppUrl(String browserName, String appUrl) {
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
@@ -105,6 +107,70 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get(appUrl);
 		return driver;
+	}
+	
+	protected WebDriver openMultiBrowser(String browserName, String env) {
+		if (browserName.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else if (browserName.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		} else if (browserName.equals("h_chrome")) {
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920x1080");
+			driver = new ChromeDriver(options);
+		} else if (browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		} else if (browserName.equals("cococ")) {
+			WebDriverManager.chromedriver().driverVersion("versionchrome - 6").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\");
+			driver = new ChromeDriver(options);
+		}  else if (browserName.equals("brave")) {
+			WebDriverManager.chromedriver().driverVersion("versionChrome-4").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\");
+			driver = new ChromeDriver(options);
+		} else if (browserName.equals("opera")) {
+			WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
+		} else {
+			throw new RuntimeException("Cannot find browser");
+		}
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get(getEnvironmentUrl(env));
+		return driver;
+	}
+	
+	public String getEnvironmentUrl(String env) {
+		String envUrl;
+		EnvironmentList enviroment = EnvironmentList.valueOf(env.toUpperCase());
+		switch (enviroment) {
+		case DEV:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+		case TEST:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+		case PRODUCTION:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+		case STAGING:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+		case PRE_PRODUCTION:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+		default:
+			envUrl = null;
+			break;
+		}
+		return envUrl;
 	}
 	
 	public WebDriver getWebdriver() {
@@ -158,6 +224,10 @@ public class BaseTest {
 	protected int generateFakeNumber() {
 		Random random = new Random();
 		return random.nextInt(99999);
+	}
+	
+	public long getRandomNumberByDateTime() {
+		return Calendar.getInstance().getTimeInMillis() % 100000;
 	}
 	
 	@AfterClass(alwaysRun = true)
