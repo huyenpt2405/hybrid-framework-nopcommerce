@@ -13,12 +13,15 @@
 
   </listeners>
   
+  <!-- Global -->
   <parameter name="env" value="dev" />
   <test name="Run on Firefox">
   	<parameter name="browser" value="firefox"></parameter>
+  	<parameter name="osName" value="windows" />
+    <parameter name="ipAddress" value="192.168.88.128" />
+    <parameter name="port" value="5555" />
     <classes>
-      <!--<class name="com.nopcommerce.commons.Common_02_Register_Cookie"/>-->
-      <class name="com.nopcommerce.user.Level_21_Multiple_Environment_Owner"/>
+      <class name="com.nopcommerce.grid.Level_23_Grid"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

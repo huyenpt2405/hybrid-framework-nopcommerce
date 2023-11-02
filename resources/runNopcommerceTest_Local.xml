@@ -18,7 +18,7 @@
   	<parameter name="browser" value="firefox"></parameter>
     <classes>
       <!--<class name="com.nopcommerce.commons.Common_02_Register_Cookie"/>-->
-      <class name="com.nopcommerce.user.Level_21_Multiple_Environment_Owner"/>
+      <class name="com.nopcommerce.grid.Level_23_Local"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
